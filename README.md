@@ -1,9 +1,11 @@
+
 local gui1 = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local title = Instance.new("TextLabel")
 local script1 = Instance.new("TextButton")
 local UIGradient = Instance.new("UIGradient")
 local script2 = Instance.new("TextButton")
+local close = Instance.new("TextButton")
 
 --Properties:
 
@@ -185,3 +187,28 @@ script2.MouseButton1Down:connect(function()
 		end)
 	end
 end)
+
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+close.BackgroundTransparency = 1.000
+close.Position = UDim2.new(0.899999976, 0, 0.00531914877, 0)
+close.Size = UDim2.new(0, 38, 0, 32)
+close.Font = Enum.Font.TitilliumWeb
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(255, 255, 255)
+close.TextSize = 41.000
+
+-- Scripts:
+
+local function ILYDFR_fake_script() -- close.LocalScript 
+	local script = Instance.new('LocalScript', close)
+
+	local Frame = script.Parent.Parent
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		Frame.Visible = false
+	end)
+end
+coroutine.wrap(ILYDFR_fake_script)()
